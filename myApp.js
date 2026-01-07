@@ -30,7 +30,7 @@ app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
     styleSrc: ["'self'", 'trusted-cdn.com'],
-    scriptSrc: ["'self'", 'code.jquery.com', 'trusted-cdn.com'],
+    scriptSrc: ["'self'", 'trusted-cdn.com'],
     fontSrc: ["'self'", 'trusted-cdn.com'],
     imgSrc: ["'self'", 'res.cloudinary.com']
   }
