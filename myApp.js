@@ -14,6 +14,31 @@ app.use(helmet.noSniff());
 
 app.use(helmet.ieNoOpen());
 
+const timeInSeconds = 90 * 24 * 60 * 60;
+app.use(helmet.hsts({
+  maxAge: timeInSeconds,
+  includeSubDomains: true,
+  preload: true
+}));
+
+helmet.dnsPrefetchControl({ allow: false });
+app.use(helmet.dnsPrefetchControl());
+
+helmet.noCache();
+app.use(helmet.noCache());
+
+helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+    scriptSrc: ["'self'", 'code.jquery.com', 'maxcdn.bootstrapcdn.com'],
+    fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+    imgSrc: ["'self'", 'res.cloudinary.com']
+  }
+});
+app.use(helmet.contentSecurityPolicy());
+
+
 
 
 
