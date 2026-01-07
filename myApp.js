@@ -29,9 +29,9 @@ app.use(helmet.noCache());
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
-    scriptSrc: ["'self'", 'code.jquery.com', 'maxcdn.bootstrapcdn.com'],
-    fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+    styleSrc: ["'self'", 'trusted-cdn.com'],
+    scriptSrc: ["'self'", 'code.jquery.com', 'trusted-cdn.com'],
+    fontSrc: ["'self'", 'trusted-cdn.com'],
     imgSrc: ["'self'", 'res.cloudinary.com']
   }
 }));
