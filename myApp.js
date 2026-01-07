@@ -21,13 +21,12 @@ app.use(helmet.hsts({
   preload: true
 }));
 
-helmet.dnsPrefetchControl({ allow: false });
-app.use(helmet.dnsPrefetchControl());
+app.use(helmet.dnsPrefetchControl({ allow: false }));
 
 helmet.noCache();
 app.use(helmet.noCache());
 
-helmet.contentSecurityPolicy({
+app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
     styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
@@ -35,8 +34,7 @@ helmet.contentSecurityPolicy({
     fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
     imgSrc: ["'self'", 'res.cloudinary.com']
   }
-});
-app.use(helmet.contentSecurityPolicy());
+}));
 
 
 
